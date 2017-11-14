@@ -20,11 +20,11 @@ app.post('/webhook', function (req, res) {
   console.log(req.body)
 
   // we have a simple authentication
-  /*if (REQUIRE_AUTH) {
+  if (REQUIRE_AUTH) {
     if (req.headers['auth-token'] !== AUTH_TOKEN) {
       return res.status(401).send('Unauthorized')
     }
-  }*/
+  }
 
   // and some validation too
   if (!req.body || !req.body.result || !req.body.result.parameters) {
@@ -36,7 +36,7 @@ app.post('/webhook', function (req, res) {
 
   // parameters are stored in req.body.result.parameters
   var userName = req.body.result.parameters['given-name']
-  var webhookReply = 'Hello ' + req.headers['given-name'] +'! Welcome from the webhook.'
+  var webhookReply = 'haha ' + req.headers['given-name'] +'! Welcome from the webhook.'
 
   // the most basic response
   res.status(200).json({
