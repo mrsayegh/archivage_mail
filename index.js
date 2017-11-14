@@ -40,6 +40,37 @@ app.post('/webhook', function (req, res) {
 
   // the most basic response
   if (res.status == '200' && res.result.metadata.intentName === '2007-NON'){
+let http = require("https");
+
+let options = {
+"method": "POST",
+"hostname": "dev16424.service-now.com",
+"port": null,
+"path": "/api/now/table/incident",
+"headers": {
+"accept": "application/json",
+"content-type": "application/json",
+"authorization": "Basic YWRtaW46TW9oYW1hZCYyMw==",
+"cache-control": "no-cache",
+"postman-token": "2662f1ab-cc41-d4ed-f425-1cfa85287298"
+}
+};
+
+let req = http.request(options, function (res) {
+let chunks = [];
+
+res.on("data", function (chunk) {
+chunks.push(chunk);
+});
+
+res.on("end", function () {
+let body = Buffer.concat(chunks);
+console.log(body.toString());
+});
+});
+
+req.write(JSON.stringify({ caller_id: 'Clément Marianne', short_description: 'TEST chatbot', active: 'true' }));
+req.end();
 	
   }
 	  
