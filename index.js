@@ -69,7 +69,7 @@ console.log(body.toString());
 });
 });
 
-req.write(JSON.stringify({ caller_id: 'Clément Marianne', short_description: 'TEST chatbot', active: 'true' }));
+req.write(JSON.stringify({ caller_id: 'mohamad sayegh', short_description: 'TEST Mardi', active: 'true' }));
 req.end();
 	
   }
