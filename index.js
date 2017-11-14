@@ -39,7 +39,7 @@ app.post('/webhook', function (req, res) {
   var webhookReply = 'haha ' + req.headers['given-name'] +'! Welcome from the webhook.'
 
   // the most basic response
-  res.status(200).json({
+  if (res.status == '200' && res.result.metadata.intentName === '2007-NON'  ).json({
     source: 'webhook',
     speech: webhookReply,
     displayText: webhookReply
