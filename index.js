@@ -40,11 +40,9 @@ app.post('/webhook', function (req, res) {
 
   // the most basic response
   if (res.status == '200' && res.result.metadata.intentName === '2007-NON'){
-	; 
+	
   }
 	  
-  
-  
   
   /*.json({
     source: 'webhook',
